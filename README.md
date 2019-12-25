@@ -1,6 +1,6 @@
 # SP2019-homework
 
-Here are my codes for NTU system programming 2019!!  
+Here are my codes for system programming 2019 of NTU CSIE!!  
 ✧*｡٩(ˊᗜˋ*)و✧*  
 
 一些不專業的code，僅供參考。  
