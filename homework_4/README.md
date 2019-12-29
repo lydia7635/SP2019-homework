@@ -1,7 +1,7 @@
 ## How to Run My Code
 * 使用`make create`產生：
 	* 可看train資料的圖片大概長相
-	（使用`./createImage [index]`，編號從0開始）
+	（使用`./createImage [index]`，編號從1開始）
 	（也可把程式中train改成test，查看test資料的圖片）
 
 * 使用`make comparing`產生：
