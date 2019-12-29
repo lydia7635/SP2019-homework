@@ -14,9 +14,9 @@
 	* `err_sys()`: 有錯誤時產生訊息並exit
 	* `flush_sync()`: 確保寫入pipe的東西有被真正傳入
 	* `find_comb`, `create_combination`: 產生所有competition的player組合
-	* `calcuRank()`: 計算competition結束後的排名。
-		由於最多只有14位player，故使用暴力法解決：
-		找出未排名的player中贏最多場的次數，
+	* `calcuRank()`: 計算competition結束後的排名。  
+		由於最多只有14位player，故使用暴力法解決：  
+		找出未排名的player中贏最多場的次數，  
 		再找哪些player符合此次數，並填入適當排名
 
 * 變數介紹：
@@ -30,7 +30,7 @@
 
 * main內容：
 	* 先創建需要的FIFO檔
-	* 以nonblocking mode, read only開啟Host.FIFO
+	* 以nonblocking mode, read only開啟Host.FIFO  
 		（不以nonblocking mode開啟會產生dead lock）
 	* fork所需host，並以write only開啟Host[host_id].FIFO
 	* unlink所有FIFO（之後process無預期中止後也不會有FIFO）
@@ -54,11 +54,11 @@
 	* `err_sys()`: 有錯誤時產生訊息並exit
 	* `init_data()`: 初始化data陣列
 	* `free_data()`: 釋放存data的記憶體
-	* `calcuRank()`: 計算competition結束後的排名。
-		由於只有8位player，故使用暴力法解決：
-		找出未排名的player中贏最多場的次數，
-		再找哪些player符合此次數，並填入適當排名
-	* `flush_sync()`: 確保寫入pipe的東西有被真正傳入
+	* `calcuRank()`: 計算competition結束後的排名。  
+		由於只有8位player，故使用暴力法解決：  
+		找出未排名的player中贏最多場的次數，  
+		再找哪些player符合此次數，並填入適當排名  
+	* `flush_sync()`: 確保寫入pipe的東西有被真正傳入  
 	* `create2children()`:
 		* 產生2個child process
 		* 控制自己與child process之間的pipe

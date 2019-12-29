@@ -22,8 +22,8 @@
 * main內容：
 	* stdin讀入所需資料
 	* 產生child process並執行hw3
-	* 一開始5秒後依照`sig[]`發送對應之signal，
-	之後等到成功接收ACK後再發送下一個signal
+	* 一開始5秒後依照`sig[]`發送對應之signal，  
+	之後等到成功接收ACK後再發送下一個signal  
 	（如果發出SIGUSR3，接收ACK後要印出其調整後的內容至stdout）
 	* 全部signal發送完畢後，接收ACK並印出至stdout（此時內容為hw3之arr）
 	* `wait()` child process
@@ -57,27 +57,27 @@
 * hw3 - funct_x內容：
 	* 處理FCB circular linked list，用`setjmp()`將目前狀態存入`Environment`
 	* 如果由`setjmp()`跳回，呼叫函式或`longjmp()`
-	* 每次執行大迴圈，開頭都要加`sigprocmask()`，
-	避免從`sigHandler()`跳回時mask會設置成前一次呼叫`sigprocmask()`要求的mask
-	（`sigprocmask()`會把pending且未block的signal deliver後，
+	* 每次執行大迴圈，開頭都要加`sigprocmask()`，  
+	避免從`sigHandler()`跳回時mask會設置成前一次呼叫`sigprocmask()`要求的mask  
+	（`sigprocmask()`會把pending且未block的signal deliver後，  
 	處理完再return）
-	* 如果無法成功取得arr lock，
+	* 如果無法成功取得arr lock，  
 	將目前狀態存入`Environment`後跳至下一個函式，	並將它放入queue
-	* 如果成功取得arr lock，將此函式從queue中刪除，
+	* 如果成功取得arr lock，將此函式從queue中刪除，  
 	並執行小迴圈將對應字元放入arr
 	* 每次完全執行完小迴圈，依照task執行以下事項：
-		- task 2: 依照`runTime`要求，在符合的時間點釋放arr lock後，
+		- task 2: 依照`runTime`要求，在符合的時間點釋放arr lock後，  
 		將目前狀態存入`Environment`並跳至下一個函式
-		- task 3: 查看是否有signal被pending並unblock它。
+		- task 3: 查看是否有signal被pending並unblock它。  
 		如果pending的為SIGUSR2，先釋放arr lock後再unblock
-	* 大迴圈會跑P + 1次（為了在填完arr再回來後仍能擁有lock），
+	* 大迴圈會跑P + 1次（為了在填完arr再回來後仍能擁有lock），  
 	第P + 1次在進入小迴圈前會用break跳出大迴圈
 	* 完全執行完大迴圈後釋放arr lock，並`longjmp()`至`Scheduler()`
 
 * hw3 - sigHandler內容：
 	* 先將signal mask還原成可以block三個signal的狀態
-	* 根據收到的signal類型，將相對應的資料輸出至stdout，
-	並調整Current指到的FCB block，
+	* 根據收到的signal類型，將相對應的資料輸出至stdout，  
+	並調整Current指到的FCB block，  
 	使之後可由`Schedule()`跳到對應的function
 
 ## 問題
@@ -87,7 +87,7 @@
 * `dummy(int name)`: name的意義？
 	- 知道下一個要叫誰
 
-* 未進入`Scheduler()`前，從`funct_1/2/3`跳回`dummy()`是使用`longjmp()`還是函式`return`？
+* 未進入`Scheduler()`前，從`funct_1/2/3`跳回`dummy()`是使用`longjmp()`還是函式`return`？  
 （因為stackframe不是要在不一樣的位置？）
 	- 是呼叫函式
 
@@ -109,13 +109,13 @@
 * 需要印出child switch to funct x嗎？
 	- 助教測試時會關掉
 
-* 	10 3
-	10
-	1 3 1 3 2 3 1 3 2 2的答案？
+* 	10 3  
+	10  
+	1 3 1 3 2 3 1 3 2 2的答案？  
 	- 2 3 4
-	  2 3 4
-	  3 4
-	  1 3 4
+	  2 3 4  
+	  3 4  
+	  1 3 4  
 	  (30個1)(24個2)(6個3)(30個4)(6個2)(24個3)
 
 ## 備註
