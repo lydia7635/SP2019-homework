@@ -191,7 +191,7 @@ int main(int argc, char *argv[])
 	if((start = times(&tmsStart)) == -1)
 		err_sys("time error");
 #endif
-	int threadNum = atoi(argv[5]);
+	int threadNum = atoi(argv[4]);
 	int trainX = open(argv[1], O_RDONLY);
 	int trainY = open(argv[2], O_RDONLY);
 
