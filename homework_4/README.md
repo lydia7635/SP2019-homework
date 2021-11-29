@@ -1,3 +1,6 @@
+# SP2019 Homework 4 - Multiclass Classifier
+練習使用 thread 來做矩陣乘法，用來實作數字辨識的 multiclass classifier 。
+
 ## How to Run My Code
 * 使用`make`產生：
 	* hw4

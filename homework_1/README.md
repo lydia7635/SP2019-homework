@@ -1,3 +1,24 @@
+# SP2019 Homework 1 - Banking System
+利用 I/O multiplexing 與 file lock 實作一個簡單的 banking system 。
+
+## Usage
+使用 `make` 產生 write_server 與 read_server。
+* server side （假設在工作站 linux1 上）：執行 read_server 與 write_server
+	* (one terminal) `./read_server <port>`
+	* (another terminal) `./write_server <port2>`
+* client side：透過 telnet 連接到 read_server 或 write_server
+	`telnet 140.112.30.32 <port/port2>`
+	* 執行指令請參考 Problem description
+
+
+## Other Tools
+使用 `make account` 生成執行檔
+* check_account
+	- 查看帳戶餘額
+* init_account
+	- 重設所有帳戶（所有金額設為 3000）
+
+## 詳細做法
 為保險起見，用 fcntl 設 svr.listen_fd 為 nonblocking mode
 
 Multiplexing tasks:
@@ -74,9 +95,3 @@ requestP[conn_fd].item 存入該連線需查看或更改的帳戶
 	  成功用 fcntl 上 write lock 時，需在對應帳戶的 writeLock[] 內設 true
 
 	  解鎖用 fcntl 上的 write lock 時，需在對應帳戶的 writeLock[] 內設 false
-
-=======================================================================================
-
-為使方便查看帳戶餘額及重設帳戶（所有金額設為3000）
-在此寫了 check_account 和 init_account
-使用 make account 生成執行檔

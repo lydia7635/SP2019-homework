@@ -1,3 +1,9 @@
+# SP2019 Homework 3 - Simulate a User-thread Library
+用下列技術模擬 user-thread library：
+1. 使用 function 來模擬 thread
+2. 練習使用 longjmp 或 setjmp 跳到不同的 function stack frame
+3. 練習 signal control 的相關使用
+
 ## How to Run My Code
 * 使用`make`產生：
 	* main

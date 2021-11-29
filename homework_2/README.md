@@ -1,3 +1,5 @@
+# SP2019 Homework 2 - Bidding System
+練習利用 fork 產生 process ，並用 pipe 與 FIFO 讓 process 間溝通，來實作一個小型的 bidding system 。
 ## Makefile
 * 使用`make`產生：
 	* bidding_system
